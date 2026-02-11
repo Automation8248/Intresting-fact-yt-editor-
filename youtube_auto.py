@@ -24,9 +24,7 @@ CONFIG = {
     
     # 4. Tags List (Must be more than 8)
     "tags": [
-        "Education", "Motivation", "Learning", "Success Mindset", 
-        "Study Tips", "Life Lessons", "Wisdom", "Self Improvement", 
-        "Educational Video", "Facts", "Knowledge", "Inspiration"
+        "#motivation #motivationalquotes #dailyquotes #successquotes #lifequotes #inspiration #positivevibes #mindset #selfgrowth #selfimprovement #hardwork #nevergiveup #focus #confidence #discipline #motivationdaily #motivationalvideo #motivationalshorts #shorts #ytshorts #viralviral #trending #successmindset #positivity"
     ]
 }
 
