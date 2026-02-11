@@ -19,12 +19,20 @@ CONFIG = {
     "title_prompt": "Write a short viral motivational quote video title in English under 60 characters. No hashtags. No quotes. No emoji.",
     "desc_prompt": "Write a deep, educational and inspiring explanation (max 2 sentences) about the importance of success and learning. Plain text only. No stars. No hashtags inside text.",
     
-    # 3. SEO Settings
-    "seo_hashtags": "#education #educationalvideo #learning #knowledge #facts #lifelessons #wisdom #motivation #inspiration #selfimprovement #successmindset #studytips #growthmindset #personaldevelopment #dailymotivation #positivemindset #studentlife #motivationalvideo #educationalshorts #ytshorts #Education #Motivation #Learning #Success #StudyMotivation #Wisdom #Shorts #Facts",
+    # 3. SEO Settings (Science & Fact Focused - USA Targeting)
+    "seo_hashtags": "#DidYouKnow #ScienceFacts #AmazingFacts #InterestingFacts #TrueFacts #MindBlowingFacts #DailyFacts #RandomFacts #FunFacts #Knowledge #KnowledgeIsPower #LearnSomethingNew #Educational #Education #GeneralKnowledge #FactsDaily #USAFacts #AmericaFacts #TrendingNow #ViralShorts #YoutubeShorts #ShortsVideo #ExploreUSA #STEM #SpaceFacts #TechFacts #HistoryFacts #PsychologyFacts #MoneyFacts #HealthFacts #LifeFacts #RealityFacts #TruthMatters #ScienceExplained #USAudience",
     
-    # 4. Tags List (Must be more than 8)
+    # 4. Tags List (Must be more than 8 - Structured for USA Reach)
     "tags": [
-        "#education #educationalvideo #learning #knowledge #facts #lifelessons #wisdom #motivation #inspiration #selfimprovement #successmindset #studytips #growthmindset #personaldevelopment #dailymotivation #positivemindset #studentlife #motivationalvideo #educationalshorts #ytshorts",
+        "DidYouKnow", "ScienceFacts", "AmazingFacts", "InterestingFacts", "TrueFacts", 
+        "MindBlowingFacts", "DailyFacts", "RandomFacts", "FunFacts", "Knowledge", 
+        "KnowledgeIsPower", "LearnSomethingNew", "Educational", "Education", 
+        "GeneralKnowledge", "FactsDaily", "USAFacts", "AmericaFacts", "TrendingNow", 
+        "ViralShorts", "YoutubeShorts", "ShortsVideo", "ExploreUSA", "STEM", 
+        "SpaceFacts", "TechFacts", "HistoryFacts", "PsychologyFacts", "MoneyFacts", 
+        "HealthFacts", "LifeFacts", "RealityFacts", "TruthMatters", "ScienceExplained", 
+        "USAudience", "NASA facts", "US History", "Psychology Hacks", "American Science", 
+        "Technology Trends", "Scientific Discovery", "Human Body Facts"
     ]
 }
 
