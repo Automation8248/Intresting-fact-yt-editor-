@@ -20,11 +20,11 @@ CONFIG = {
     "desc_prompt": "Write a deep, educational and inspiring explanation (max 2 sentences) about the importance of success and learning. Plain text only. No stars. No hashtags inside text.",
     
     # 3. SEO Settings
-    "seo_hashtags": "#Education #Motivation #Learning #Success #StudyMotivation #Wisdom #Shorts #Facts",
+    "seo_hashtags": "#education #educationalvideo #learning #knowledge #facts #lifelessons #wisdom #motivation #inspiration #selfimprovement #successmindset #studytips #growthmindset #personaldevelopment #dailymotivation #positivemindset #studentlife #motivationalvideo #educationalshorts #ytshorts #Education #Motivation #Learning #Success #StudyMotivation #Wisdom #Shorts #Facts",
     
     # 4. Tags List (Must be more than 8)
     "tags": [
-        "#motivation #motivationalquotes #dailyquotes #successquotes #lifequotes #inspiration #positivevibes #mindset #selfgrowth #selfimprovement #hardwork #nevergiveup #focus #confidence #discipline #motivationdaily #motivationalvideo #motivationalshorts #shorts #ytshorts #viralviral #trending #successmindset #positivity"
+        "#education #educationalvideo #learning #knowledge #facts #lifelessons #wisdom #motivation #inspiration #selfimprovement #successmindset #studytips #growthmindset #personaldevelopment #dailymotivation #positivemindset #studentlife #motivationalvideo #educationalshorts #ytshorts",
     ]
 }
 
