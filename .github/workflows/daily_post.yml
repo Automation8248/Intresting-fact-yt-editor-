@@ -2,7 +2,7 @@ name: YouTube Auto Publisher
 
 on:
   schedule:
-  - cron: '29 12 * * *'
+  - cron: '55 10 * * *'
   workflow_dispatch: # Button to run manually for testing
 
 jobs:
