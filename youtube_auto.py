@@ -124,28 +124,38 @@ def send_telegram_alert(video_id, channel_name):
     
     requests.post(url, json=payload)
 
-def main():
-    try:
+try:
         print(f"--- STARTING AUTOMATION ---")
         youtube = get_youtube_service()
         
-        # 1. Latest Video Search
-        request = youtube.search().list(
-            part="snippet",
-            forMine=True,
-            type="video",
-            maxResults=5
+        # --- FIX START ---
+        
+        # Step A: Apne Channel ki "Uploads" Playlist ID nikalo
+        channel_response = youtube.channels().list(
+            part="contentDetails",
+            mine=True
+        ).execute()
+        
+        uploads_playlist_id = channel_response["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+        
+        # Step B: Us Playlist se recent videos nikalo (Yeh Private/Unlisted sab dikhayega)
+        playlist_request = youtube.playlistItems().list(
+            part="snippet,contentDetails",
+            playlistId=uploads_playlist_id,
+            maxResults=10  # Top 10 recent videos check karega
         )
-        response = request.execute()
+        playlist_response = playlist_request.execute()
         
-        target_video = None
+        target_video_id = None
+        target_video_snippet = None
         
-        # 2. Find Unlisted/Private Video
-        for item in response.get("items", []):
-            vid_id = item["id"]["videoId"]
+        # Step C: Ab har video ka status check karo
+        for item in playlist_response.get("items", []):
+            vid_id = item["contentDetails"]["videoId"]
             
+            # Video ka Privacy Status janne ke liye videos().list call karna padega
             vid_request = youtube.videos().list(
-                part="snippet,status,contentDetails",
+                part="snippet,status",
                 id=vid_id
             )
             vid_response = vid_request.execute()
@@ -156,17 +166,21 @@ def main():
             video_data = vid_response["items"][0]
             privacy = video_data["status"]["privacyStatus"]
             
+            # Agar video Private ya Unlisted hai to pakad lo
             if privacy in ["private", "unlisted"]:
-                target_video = video_data
-                print(f"Target Found: {vid_id} | Current Title: {video_data['snippet']['title']}")
+                target_video_id = vid_id
+                target_video_snippet = video_data["snippet"]
+                print(f"Target Found: {vid_id} | Current Title: {target_video_snippet['title']}")
                 break 
         
-        if not target_video:
+        if not target_video_id:
             print("No Unlisted/Private videos found.")
             return
 
-        vid_id = target_video["id"]
-        snippet = target_video["snippet"]
+        vid_id = target_video_id
+        snippet = target_video_snippet
+        
+        # --- FIX END ---
         
         # --- AI & CONTENT LOGIC ---
         
