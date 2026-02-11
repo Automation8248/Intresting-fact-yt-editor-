@@ -124,13 +124,13 @@ def send_telegram_alert(video_id, channel_name):
     
     requests.post(url, json=payload)
 
-try:
+def main():
+    try:
         print(f"--- STARTING AUTOMATION ---")
         youtube = get_youtube_service()
         
-        # --- FIX START ---
-        
-        # Step A: Apne Channel ki "Uploads" Playlist ID nikalo
+        # 1. Channel "Uploads" Playlist ID Nikalna
+        # (Yeh method sabse reliable hai hidden videos ke liye)
         channel_response = youtube.channels().list(
             part="contentDetails",
             mine=True
@@ -138,22 +138,22 @@ try:
         
         uploads_playlist_id = channel_response["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
         
-        # Step B: Us Playlist se recent videos nikalo (Yeh Private/Unlisted sab dikhayega)
+        # 2. Playlist se Recent Videos Nikalna
         playlist_request = youtube.playlistItems().list(
-            part="snippet,contentDetails",
+            part="contentDetails",
             playlistId=uploads_playlist_id,
-            maxResults=10  # Top 10 recent videos check karega
+            maxResults=10  # Last 10 videos check karega
         )
         playlist_response = playlist_request.execute()
         
         target_video_id = None
         target_video_snippet = None
         
-        # Step C: Ab har video ka status check karo
+        # 3. Videos ko check karna (Private/Unlisted dhoondhna)
         for item in playlist_response.get("items", []):
             vid_id = item["contentDetails"]["videoId"]
             
-            # Video ka Privacy Status janne ke liye videos().list call karna padega
+            # Video ka Privacy Status check karo
             vid_request = youtube.videos().list(
                 part="snippet,status",
                 id=vid_id
@@ -166,7 +166,7 @@ try:
             video_data = vid_response["items"][0]
             privacy = video_data["status"]["privacyStatus"]
             
-            # Agar video Private ya Unlisted hai to pakad lo
+            # Agar video Private ya Unlisted hai
             if privacy in ["private", "unlisted"]:
                 target_video_id = vid_id
                 target_video_snippet = video_data["snippet"]
@@ -180,15 +180,12 @@ try:
         vid_id = target_video_id
         snippet = target_video_snippet
         
-        # --- FIX END ---
-        
         # --- AI & CONTENT LOGIC ---
         
-        # A) TITLE GENERATION (Updated Logic)
+        # A) TITLE GENERATION
         current_title = snippet["title"]
         new_title = current_title
         
-        # Check karega ki kya title filename/date jaisa hai
         if should_replace_title(current_title):
             print("Detected generic/filename title. Generating new AI Title...")
             ai_title = ask_pollinations_ai(CONFIG["title_prompt"])
@@ -206,7 +203,7 @@ try:
             
         final_description = f"{ai_desc}\n\n{CONFIG['seo_hashtags']}"
         
-        # C) TAGS LOGIC (STRICT CHECK >= 8)
+        # C) TAGS LOGIC
         final_tags = CONFIG["tags"]
         if len(final_tags) < 8:
             final_tags.extend(["Viral", "Trending", "Must Watch", "New Video"])
@@ -216,21 +213,18 @@ try:
         update_body = {
             "id": vid_id,
             "snippet": {
-                "categoryId": CONFIG["category_id"], # Fixed to 27
+                "categoryId": CONFIG["category_id"],
                 "title": new_title,
                 "description": final_description,
-                "tags": final_tags, # 8+ Tags
+                "tags": final_tags,
                 "channelTitle": snippet["channelTitle"]
             },
             "status": {
-                "privacyStatus": "public",       # Public
-                "selfDeclaredMadeForKids": False, # Not Made For Kids
+                "privacyStatus": "public",
+                "selfDeclaredMadeForKids": False,
                 "embeddable": True,
                 "license": "youtube"
             }
-            # IMP: Altered Content 'No' Logic
-            # Hum yahan koi bhi AI label metadata nahi bhej rahe hain.
-            # YouTube API by default isse "Altered Content: No" manta hai.
         }
         
         youtube.videos().update(
@@ -245,7 +239,8 @@ try:
         send_telegram_alert(vid_id, display_name)
 
     except Exception as e:
+        # Yeh line ab sahi jagah par hai
         print(f"CRITICAL ERROR: {e}")
 
 if __name__ == "__main__":
-    main()
+    main()       
