@@ -19,21 +19,21 @@ CONFIG = {
     "title_prompt": "Write a short viral motivational quote video title in English under 60 characters. No hashtags. No quotes. No emoji.",
     "desc_prompt": "Write a deep, educational and inspiring explanation (max 2 sentences) about the importance of success and learning. Plain text only. No stars. No hashtags inside text.",
     
-    # 3. SEO Settings
-    "seo_hashtags": "#education #educationalvideo #learning #knowledge #facts #lifelessons #wisdom #motivation #inspiration #selfimprovement #successmindset #studytips #growthmindset #personaldevelopment #dailymotivation #positivemindset #studentlife #motivationalvideo #educationalshorts #ytshorts #Education #Motivation #Learning #Success #StudyMotivation #Wisdom #Shorts #Facts #Education #EducationalVideo #Facts #Inspiration #Knowledge #Learning #LifeLessons #Motivation #SelfImprovement #StudyTips #SuccessMindset #Wisdom #USA #USAEducation #ViralUSA #EnglishQuotes #GlobalLearning",
+    # 3. SEO Settings (Science & Tech - USA Targeting)
+    "seo_hashtags": "#science #sciencevideo #learning #knowledge #sciencefacts #spacefacts #innovation #research #technology #scientificmind #stemeducation #physicsfacts #biologyfacts #chemistryfacts #dailyscience #curiosity #futuretech #scienceexplained #scienceshorts #ytshorts #Science #STEM #Learning #Discovery #SpaceScience #Innovation #Shorts #Facts #Science #ScienceVideo #Facts #Discovery #Knowledge #Learning #SpaceFacts #STEM #ScientificMind #PhysicsFacts #BiologyFacts #ChemistryFacts #Research #USA #USAScience #ViralUSA #EnglishContent #GlobalScience",
     
-    # 4. Tags List (Targeting USA Audience)
+    # 4. Tags List (Exact Mirror of Hashtags)
     "tags": [
-        "education", "educationalvideo", "learning", "knowledge", "facts", 
-        "lifelessons", "wisdom", "motivation", "inspiration", "selfimprovement", 
-        "successmindset", "studytips", "growthmindset", "personaldevelopment", 
-        "dailymotivation", "positivemindset", "studentlife", "motivationalvideo", 
-        "educationalshorts", "ytshorts", "Education", "Motivation", "Learning", 
-        "Success", "StudyMotivation", "Wisdom", "Shorts", "Facts", "Education", 
-        "EducationalVideo", "Facts", "Inspiration", "Knowledge", "Learning", 
-        "LifeLessons", "Motivation", "SelfImprovement", "StudyTips", "SuccessMindset", 
-        "Wisdom", "USA", "United States", "American Students", "US Trending", 
-        "Global Motivation", "English Language", "Ivy League Vibes", "Success USA"
+        "science", "sciencevideo", "learning", "knowledge", "sciencefacts", 
+        "spacefacts", "innovation", "research", "technology", "scientificmind", 
+        "stemeducation", "physicsfacts", "biologyfacts", "chemistryfacts", 
+        "dailyscience", "curiosity", "futuretech", "scienceexplained", 
+        "scienceshorts", "ytshorts", "Science", "STEM", "Learning", 
+        "Discovery", "SpaceScience", "Innovation", "Shorts", "Facts", 
+        "Science", "ScienceVideo", "Facts", "Discovery", "Knowledge", 
+        "Learning", "SpaceFacts", "STEM", "ScientificMind", "PhysicsFacts", 
+        "BiologyFacts", "ChemistryFacts", "Research", "USA", "USAScience", 
+        "ViralUSA", "EnglishContent", "GlobalScience"
     ]
 }
 
