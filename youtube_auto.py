@@ -16,7 +16,7 @@ CONFIG = {
     "category_id": "27",  
     
     # 2. AI Prompts (No Stars, No Hashtags in text)
-    "title_prompt": "Write a short viral motivational quote video title in English under 60 characters. No hashtags. No quotes. No emoji.",
+    "title_prompt": "Write a short viral science or fact-based video title in English under 60 characters.No hashtags. No quotes. No emoji.",
     "desc_prompt": "Write a deep, educational and inspiring explanation (max 2 sentences) about the importance of success and learning. Plain text only. No stars. No hashtags inside text.",
     
     # 3. SEO Settings (Science & Tech - USA Targeting)
